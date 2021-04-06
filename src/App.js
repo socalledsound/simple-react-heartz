@@ -1,13 +1,18 @@
 import React from 'react';
 import Heart from './components/Heart';
 
-// const array =[[100, 200], [200, 400]];
+const data = Array.from({ length: 50}, () => ({ top: Math.random() * window.innerWidth, left: Math.random() * window.innerHeight}));
 
 const App = () => {
     return ( 
         <div>
-            <Heart top={100} left={90}/>
-            <Heart top={300} left={200}/>
+            {
+                data.map(item => {
+                    return (
+                        <Heart top={item.top} left={item.left} />
+                    )
+                })
+            }
         </div>
      );
 }
